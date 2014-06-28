@@ -1,5 +1,7 @@
 <html>
 <script>
+
+// Quick Hack to prevent multiple triggered uploads.
 function DoForm(){
  if (document.theForm.MyButton.value=="Upload File")
 	{ document.theForm.MyButton.value="Processing..."; return true;}
@@ -15,7 +17,8 @@ function DoForm(){
 <table>
 <tr><td align=right valign=top>File:</td>
 <td align=left valign=top>
-<input type=hidden name="MAX_FILE_SIZE" value="<?=1024*1024*1024*20?>">
+<!--  does not override php.ini value.  -->
+<input type=hidden name="MAX_FILE_SIZE" value="<?=1024*1024*20?>">
 <input type=hidden name="funct" value="Submit">
 <input type="file" name="Image">
 </td></tr>
